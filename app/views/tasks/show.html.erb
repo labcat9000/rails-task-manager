@@ -1,12 +1,9 @@
-<h2><%= @task.title %></h2>
-<%= link_to "✏️ Edit task", edit_task_path %>
+<h2 class="py-2"><%= @task.title %></h2>
+<%= link_to "✏️ Edit task", edit_task_path, :class => "btn btn-outline-primary" %>
+<hr>
 <p><%= @task.details %></p>
 <p>
-  <% if @task.completed %>
-    <%= 'The task is complete' %>
-  <% else %>
-    <%= 'The task is not complete' %>
-  <% end %>
+  <%= check_box("task", @task.id, {checked: @task.completed}) %> Completed
 </p>
 <hr>
-<%= link_to "📋 Back to list", tasks_path %>
+<%= link_to "📋 Back to list", tasks_path, :class => "btn btn-outline-primary" %>
